@@ -7,8 +7,6 @@ const useFetchUsers = () => {
         queryKey: ["users"],
         queryFn: () => userService.getUsers()
     })
-    //
-    // useMutation()
 
     return {
         isLoading: query?.isLoading,

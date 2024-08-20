@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 
@@ -55,8 +55,6 @@ const Page = () => {
 
     const enum Size {Small = 1, Medium = 2, Large = 3}
     console.log(Size.Large)
-    // let mySize : Size = Size.Small
-    // console.log(mySize)
 
     function plus (a : number, b : number) {
         if (a < 100){
@@ -79,6 +77,24 @@ const Page = () => {
         return Number(num1) * Number(num1) + 10;
     }
     console.log(kgTol("100.5"))
+
+    type Query = 50 | 100;
+    let qty : Query = 100
+    console.log(qty);
+
+    function press (name : string | null) {
+        if(name){
+            return name.toUpperCase();
+        }
+        return "Guest";
+    }
+    console.log(press(null));
+
+    function get(id: number){
+        return id === 0? null : new Date().toLocaleString();
+    }
+    console.log(get(1))
+
 
     return (
         <div>
