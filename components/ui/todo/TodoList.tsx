@@ -4,6 +4,7 @@ import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {todoService} from "@/service/todo.service";
 import {UpdateTodo} from "@/lib/types";
 import { useRouter } from 'next/navigation';
+import { error } from 'console';
 
 
 const TodoList = () => {
@@ -33,6 +34,9 @@ const TodoList = () => {
         updateTodo({id: 1, body: body})
         router.push(`/todo/${id}`)
     }
+
+    // if (isLoading) return <p>Loading...</p>;
+    if (isError) return <p>Error: </p>;
 
     return (
         <main>

@@ -14,7 +14,7 @@ const getTodo = async (): Promise<TodoResponse> => {
 }
 
 const getTodoById = async (id: number ): Promise<Todo> => {
-    const result = await http.get(MessageFormat.format(ServiceId.GET_BY_ID, Number(id)))
+    const result = await http.get(MessageFormat.format(ServiceId.GET_BY_ID, id))
     return result?.data
 }
 

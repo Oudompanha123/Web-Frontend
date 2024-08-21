@@ -16,7 +16,7 @@ type Props = {
 };
 
 const UserDetail = ({ id }: Props) => {
-
+    console.log("Props: ", id)
     const { data, isLoading, error } = useQuery({
         queryKey: ["user", id],
         queryFn: async () => {

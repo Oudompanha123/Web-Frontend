@@ -95,6 +95,22 @@ const Page = () => {
     }
     console.log(get(1))
 
+    type Customer = {
+        date : Date
+    }
+
+    function cus(id : number) : Customer | null | undefined {
+        if(id === 0) {
+            return null;
+        }
+        return {date : new Date()}
+    }
+    let customer = cus(1);
+    if (customer !== null || customer !== undefined){
+        return  console.log(customer?.date?.getFullYear())
+    }
+    // console.log(customer?.date?.getFullYear())
+
 
     return (
         <div>
