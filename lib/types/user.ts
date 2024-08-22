@@ -23,3 +23,8 @@ export interface InsertUser{
     status : boolean
 }
 
+export interface InsertTodo{
+    title : string,
+    status : boolean
+}
+

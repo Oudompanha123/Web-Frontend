@@ -34,6 +34,36 @@ const response : ApiResponse<{name : string, age : number} []> = {
 }
 console.log(...response?.payload);
 
+type Person = {
+    name : string,
+    age : number,
+    address : {
+        street : string,
+        city : string,
+    }
+    children : Person[]
+}
+const person : Person = {
+    name: "panha",
+    age: 30,
+    address: {
+        street: "123 Main St",
+        city: "New York",
+    },
+    children : [
+        {
+            name: "Navas",
+            age: 12,
+            address: {
+                street: "456 Elm St",
+                city: "Los Angeles",
+            },
+            children: [],
+        }
+    ]
+}
+console.log(person)
+
 const Page = ({params}: Props) => {
     console.log("Params: ", params.id);
     return (

@@ -1,6 +1,6 @@
 import {http} from "@/utils/http";
 import {MessageFormat} from "@/utils/message-format";
-import {Todo, TodoResponse, UpdateTodo} from "@/lib/types";
+import {InsertTodo, Todo, TodoResponse, UpdateTodo} from "@/lib/types";
 
 
 const ServiceId = {
@@ -23,8 +23,21 @@ const updateTodo = async (id: number, payload: UpdateTodo): Promise<VoidFunction
     return result?.data;
 }
 
+const insertTodo = async (payload : InsertTodo): Promise<VoidFunction> => {
+    const result = await http.post(ServiceId.TODO, payload);
+    return result?.data;
+}
+
+const deleteTodo = async (id : number): Promise<VoidFunction> => {
+    const result = await http.delete(MessageFormat.format(ServiceId.GET_BY_ID, id));
+    return result?.data;
+    
+}
+
 export const todoService = {
     getTodo,
     getTodoById,
-    updateTodo
+    updateTodo,
+    insertTodo,
+    deleteTodo
 }

@@ -31,9 +31,15 @@ const insertUser = async (payload : InsertUser) : Promise<VoidFunction> => {
     return result?.data
 }
 
+const deleteUser = async (id : number) : Promise<VoidFunction> => {
+    const result = await http.delete(MessageFormat.format(ServiceId.GET_BY_ID, id))
+    return result?.data;
+}
+
 export const userService = {
     getUsers,
     getUserById,
     updateUser,
-    insertUser
+    insertUser,
+    deleteUser
 }

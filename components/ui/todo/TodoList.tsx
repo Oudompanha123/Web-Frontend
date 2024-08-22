@@ -35,6 +35,13 @@ const TodoList = () => {
         router.push(`/todo/${id}`)
     }
 
+    function add(a : number, b: number): string {
+        return (a + b).toString() 
+    }
+    console.log(add(1, 2));
+
+    
+
     // if (isLoading) return <p>Loading...</p>;
     if (isError) return <p>Error: </p>;
 
@@ -42,9 +49,12 @@ const TodoList = () => {
         <main>
             <h2>Todo List</h2>
             {
-                data?.todo?.map(todo =>  <h5 key={todo.id}>{todo.title}</h5>)
+                data?.todo?.map((todo, index ) => (
+                    <h5 key={index + 1}>
+                        {todo.title}
+                    </h5>
+                ))
             }
-
             <button onClick={handleUpdate}>update</button>
         </main>
     );
