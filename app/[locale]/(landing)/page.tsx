@@ -107,10 +107,8 @@ const Page = () => {
     }
     let customer = cus(1);
     if (customer !== null || customer !== undefined){
-        return  console.log(customer?.date?.getFullYear())
+        return  console.log(customer?.date?.getFullYear());
     }
-    // console.log(customer?.date?.getFullYear())
-
 
     return (
         <div>

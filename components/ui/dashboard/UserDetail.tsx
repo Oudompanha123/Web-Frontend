@@ -9,7 +9,13 @@ type User = {
     id: number;
     name: string;
     email: string;
+    phone : string;
+    company : string
 };
+
+type UserResponse = {
+    users: Array<User>;
+}
 
 type Props = {
     id: number;
@@ -20,9 +26,23 @@ const UserDetail = ({ id }: Props) => {
     const { data, isLoading, error } = useQuery({
         queryKey: ["user", id],
         queryFn: async () => {
-            const response = await axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
-            console.log(response?.data)
-            return response.data; // Return only the user data which is type User
+            try{
+                const response = await axios.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`, {
+                    headers: {
+                        Accept : 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    timeout: 5000,
+                });
+                console.log("Data Response: ", response?.data?.name)
+                return response?.data;
+            } catch (error){
+                console.error(error);
+                throw error;
+            } finally {
+                console.log("Finally Block")
+            }
+            
         }
     });
 

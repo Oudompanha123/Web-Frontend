@@ -15,7 +15,7 @@ export interface TodoResponse {
 }
 
 export interface UpdateTodo {
-    title: string
+    title: string;
 }
 
 export interface InsertUser{
@@ -28,3 +28,6 @@ export interface InsertTodo{
     status : boolean
 }
 
+export interface UserResponse {
+    user: User[];
+}

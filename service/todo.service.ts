@@ -10,12 +10,12 @@ const ServiceId = {
 
 const getTodo = async (): Promise<TodoResponse> => {
     const result = await http.get(ServiceId.TODO)
-    return result?.data?.data
+    return result?.data?.data;
 }
 
 const getTodoById = async (id: number ): Promise<Todo> => {
     const result = await http.get(MessageFormat.format(ServiceId.GET_BY_ID, id))
-    return result?.data
+    return result?.data;
 }
 
 const updateTodo = async (id: number, payload: UpdateTodo): Promise<VoidFunction> => {

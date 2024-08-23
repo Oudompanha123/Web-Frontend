@@ -64,6 +64,30 @@ const person : Person = {
 }
 console.log(person)
 
+const p : Record <number, number> = {
+    1: 10,
+    2: 20,
+    3: 30,
+}
+
+type People = {
+    name : string,
+    age : number,
+    address : {
+        street : string,
+        city : string,
+    }
+}
+type People1 = Partial<People>
+const people : People1 = {
+    name: "panha",
+    age: undefined,
+    address: {
+        street: "123 Main St",
+        city: "New York",
+    },
+}
+
 const Page = ({params}: Props) => {
     console.log("Params: ", params.id);
     return (
