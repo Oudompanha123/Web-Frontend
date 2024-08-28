@@ -2,6 +2,7 @@ export interface User {
     id: number;
     name: string;
     email: string;
+    phone: string
 }
 
 export interface Todo {
@@ -11,7 +12,7 @@ export interface Todo {
 }
 
 export interface TodoResponse {
-    todo: Todo[];
+    todo: Array<Todo>;
 }
 
 export interface UpdateTodo {

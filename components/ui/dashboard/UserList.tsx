@@ -11,9 +11,9 @@ const UserList = () => {
         <div>
             <h2>Users</h2>
             {
-                users?.map(user => (
-                    <h5 key={user.id}>
-                        <Link href={`/users/` + user.id} >{user.name}</Link>
+                users?.map((user, index) => (
+                    <h5 key={index + 1}>
+                        <Link href={`/en/users/` + user.id} >{user.name}</Link>
                     </h5>
                 ))
             }

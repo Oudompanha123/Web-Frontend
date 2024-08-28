@@ -32,7 +32,7 @@ const TodoList = () => {
             title: 'new name'
         }
         updateTodo({id: 1, body: body})
-        router.push(`/todo/${id}`)
+        router.push(`/en/todo/${id}`)
     }
 
     function add(a : number, b: number): string {

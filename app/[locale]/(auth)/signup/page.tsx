@@ -2,9 +2,9 @@ import React from 'react';
 
 const Page = () => {
     return (
-        <div>
+        <>
             <h2>SingUp Page</h2>
-        </div>
+        </>
     );
 };
 

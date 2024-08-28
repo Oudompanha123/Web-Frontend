@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import {useTranslations} from "next-intl";
 
 const Page = () => {
@@ -50,8 +51,9 @@ const Page = () => {
 
     function app (dicument : string) {
         console.log(dicument);
-        return "done";
+        return dicument;
     }
+    console.log(app("data"))
 
     const enum Size {Small = 1, Medium = 2, Large = 3}
     console.log(Size.Large)
@@ -91,7 +93,7 @@ const Page = () => {
     console.log(press(null));
 
     function get(id: number){
-        return id === 0? null : new Date().toLocaleString();
+        return id === 0? null : new Date().toLocaleDateString();
     }
     console.log(get(1))
 
@@ -111,20 +113,24 @@ const Page = () => {
     }
 
     return (
-        <div>
+        <>
             <div className={"d-flex gap-2"}>
                 <Link href={"/en/login"} >Login</Link>
                 <Link href={"/en/signup"}>SignUp</Link>
                 <Link href={"/en/dashboard"}>Dashboard</Link>
+            </div>
+            
+            <div className='picture'>
+                <Image src="/logo.png" alt="Logo" width={300} height={100} />
             </div>
 
             <h1 className='text-3xl font-bold underline text-red-300'>
                 hello world
             </h1>
 
-            <h2>Landing Page</h2>
+            <h2 className='text-3xl font-bold underline text-red-300'>Landing Page</h2>
             <h1>{translated("title")}</h1>
-        </div>
+        </>
     );
 };
 

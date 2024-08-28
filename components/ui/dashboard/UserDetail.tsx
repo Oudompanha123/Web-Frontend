@@ -13,10 +13,6 @@ type User = {
     company : string
 };
 
-type UserResponse = {
-    users: Array<User>;
-}
-
 type Props = {
     id: number;
 };
@@ -51,7 +47,7 @@ const UserDetail = ({ id }: Props) => {
     });
 
     if(error) {
-        return <div>{error.message}</div>;
+        return <div>Error: {error.message}</div>;
     }
 
     if (isLoading) {
@@ -60,9 +56,10 @@ const UserDetail = ({ id }: Props) => {
 
     return (
         <article>
-            <span>{data?.name}</span>
-            <span>{data?.email}</span>
-            <button onClick={() => updateUser()}>Update User</button>
+            <span data-show={data?.id}>{data?.name}</span><br />
+            <span>{data?.email}</span><br />
+            <span>{data?.name}</span><br />
+            <button onClick={() => updateUser()} btn-click={123}>Update User</button>
         </article>
     );
 };
